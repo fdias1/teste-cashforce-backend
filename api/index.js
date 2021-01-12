@@ -5,8 +5,8 @@ const port = process.env.PORT
 const cors = require('cors')
 const express = require('express')
 const app = express()
-const v1 = require('./routes/v1.js')
-const db = require('./services/database')()
+const v1 = require('./src/routes/v1.js')
+const db = require('./src/services/database')()
 
 app.use(express.json())
 app.use(cors({origin:true}))
