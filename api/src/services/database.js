@@ -14,10 +14,9 @@ const connect = async () => {
         const sequelize = new Sequelize(dbName, username, password, {
             host: dbHost,
             dialect: dbEngine,
+            logging: false
         });
-        await sequelize.authenticate();
-        logger.info('Banco de dados conectado');
-
+        return sequelize
     } catch(err) {
         if (tentativasDeConexao <= 3) {
             logger.info(`Tentativa ${tentativasDeConexao}/3 de conexão falhou! tentando novamente em 5 segundos...`)
