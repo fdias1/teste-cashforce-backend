@@ -6,7 +6,6 @@ const cors = require('cors')
 const express = require('express')
 const app = express()
 const v1 = require('./src/routes/v1.js')
-const db = require('./src/services/database')()
 
 app.use(express.json())
 app.use(cors({origin:true}))
