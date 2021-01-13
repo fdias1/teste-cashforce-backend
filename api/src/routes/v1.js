@@ -3,9 +3,8 @@ const routes = Router()
 
 // Controllers disponíveis
 const orders = require('../controllers/ordersController')
-const providers = require('../controllers/providersController')
 
+// configuração das rotas
 routes.use('/orders',orders)
-routes.use('/providers',providers)
 
 module.exports = routes
