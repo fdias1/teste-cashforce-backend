@@ -1,22 +1,23 @@
 version: '3.1'
 
 services:
-
-  db:
-    image: mariadb
+  api:
+    image: "node:12"
     restart: always
+    user: "node"
+    working_dir: /home/node/app
     environment:
-      MYSQL_ROOT_PASSWORD: senha
-      MYSQL_DATABASE: cashforce
-    volumes: 
-      - ./database:/docker-entrypoint-initdb.d
+      - NODE_ENV=${NODE_ENV}
+      - PORT=${PORT}
+      - DB_ENGINE=${DB_ENGINE}
+      - DB_HOST=${DB_HOST}
+      - DB_NAME=${DB_NAME}
+      - DB_USERNAME=${DB_USERNAME}
+      - DB_PASSWORD=${DB_USERNAME}
+    volumes:
+      - ./api:/home/node/app
     ports:
-      - 3306:3306
-
-  adminer:
-    image: adminer
-    restart: always
-    ports:
-      - 8080:8080
+      - ${PORT}
+    command: "npm start"
     depends_on:
-      - db
+      - database
