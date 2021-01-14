@@ -4,6 +4,14 @@ const { QueryTypes, Sequelize } = require('sequelize');
 const dbConnect = require('../services/database')
 
 routes.get('/',async (req,res,next) => {
+    /* 
+        #swagger.tags = ['Orders']
+        #swagger.description = 'Retorna todas as `order` com o respectivo objeto `provider` associado'
+        #swagger.responses[200] = { 
+            description: 'Retorna todos os objetos da tabela' 
+        }
+    */
+        
     try {
         const database = await dbConnect()
         const orders = await database.query(`
@@ -50,9 +58,11 @@ routes.get('/',async (req,res,next) => {
         }
 
         database.close()
+        logger.info('Consulta realizada com sucesso')
         res.status(200).send({ok:true,mensagem:null,retorno:orders})
     } catch (err) {
-        res.status(400).send({ok:false,mensagem:err,retorno:null})
+        logger.error(err)
+        res.status(500).send({ok:false,mensagem:'Algo deu errado, tente novamente mais tarde',retorno:null})
     }
 })
 
