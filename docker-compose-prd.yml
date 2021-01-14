@@ -9,15 +9,14 @@ services:
     environment:
       - NODE_ENV=${NODE_ENV}
       - PORT=${PORT}
+      - JWT_SECRET=${JWT_SECRET}
       - DB_ENGINE=${DB_ENGINE}
       - DB_HOST=${DB_HOST}
       - DB_NAME=${DB_NAME}
       - DB_USERNAME=${DB_USERNAME}
-      - DB_PASSWORD=${DB_USERNAME}
+      - DB_PASSWORD=${DB_PASSWORD}
     volumes:
       - ./api:/home/node/app
     ports:
-      - ${PORT}
+      - ${PORT}:${PORT}
     command: "npm start"
-    depends_on:
-      - database
