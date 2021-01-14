@@ -13,16 +13,16 @@
 - buyers = sacados; providers = cedentes
 
 ## Tarefas solicitadas: 
-[x] Construir uma API com node.js, express.js e sequelize para ler o banco de dados informado.
-[x] Construir um frontend em Vue.js que consome esta API e lista as notas fiscais do banco de dados.
+-  [x] Construir uma API com node.js, express.js e sequelize para ler o banco de dados informado.
+-  [x] Construir um frontend em Vue.js que consome esta API e lista as notas fiscais do banco de dados.
 
 ## Features extras:
 
 ### Backend
-[x] Autenticação por JWT da API
-[x] Swagger de documentação da API
-[x] Containerização da estrutura de backend
+-  [x] Autenticação por JWT da API
+-  [x] Swagger de documentação da API
+-  [x] Containerização da estrutura de backend
 
 ### Frontend
-[x] Funcionalidade de navegação entre páginas no web app
-[x] Funcionalidade de exibir dados adicionais do Cedente
+-  [x] Funcionalidade de navegação entre páginas no web app
+-  [x] Funcionalidade de exibir dados adicionais do Cedente
